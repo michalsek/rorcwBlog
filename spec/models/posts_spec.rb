@@ -26,3 +26,11 @@ describe 'Post' do
     
   end
 end
+
+require 'rails_helper'
+
+describe "Posts" do 
+ 
+
+
+end

@@ -1,0 +1,11 @@
+<h1>Super blog</h1>
+<p id="notice"><%= notice %></p>
+<div class="all_posts">
+	<% @posts.each do |post| %>
+		<%= render 'show', post: post %>
+	<% end %>
+</div>
+
+<%= link_to 'New Post', new_post_path %>
+<%= link_to 'Najnowsze posty', recent_posts_path %>
+<%= link_to 'Wpisy', posts_path %>

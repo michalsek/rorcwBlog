@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def all
+    @posts = Post.all
+  end
+
   def recent
     @posts = Post.order(created_at: :desc).limit(3)
   end

@@ -56,5 +56,29 @@ describe "Posts" do
     expect(page).to have_content "Marysia"
     expect(page).to have_content "co to?"
   end
+
+  let!(:post){ Post.create title: "To jest super wpis", content: "Super content" }
+  let(:post2){ Post.create title: "To jest jeszcze lepszy wpis", content: "Super content 2" }
+  
+  it "should display all posts with comments" do
+    com1 = post.comments.create name: "Jurek", message: "Super"
+    com2 = post.comments.create name: "Ewelinka", message: "Ekstra"
+    com3 = post2.comments.create name: "Marysia", message: "Tak to jest"
+    
+    visit all_posts_path
+    
+    expect(page).to have_content post.title
+    expect(page).to have_content post2.title
+    expect(page).to have_content post.content
+    expect(page).to have_content post2.content
+    
+    expect(page).to have_content com1.name
+    expect(page).to have_content com1.message
+    expect(page).to have_content com2.name
+    expect(page).to have_content com2.message
+    expect(page).to have_content com3.name
+    expect(page).to have_content com3.message
+    
+  end
 end
 
