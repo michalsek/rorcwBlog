@@ -1,20 +1,21 @@
-<div class="post">
-	<p>
-  	<strong>Tytuł:</strong>
-  	<%= post.title %>
-	</p>
-
-	<p>
-  	<strong>Treść:</strong>
+<p>
+	<strong>Tytuł:</strong>
+ 	<%= post.title %>
+</p>
+<p>
+  <strong>Treść:</strong>
+  <% if !post.adults_only %>
   	<%= post.content %>
-	</p>
-	<p>
-  	<strong>Dodano:</strong>
-  	<%= post.created_at.strftime "%F" %>
-	</p>
+	<% else %>
+		Tylko dla dorosłych!
+	<% end %>
+</p>
+<p>
+	<strong>Dodano:</strong>
+ 	<%= post.created_at.strftime "%F" %>
+</p>
 
-	<h2>Komentarze</h2>
-	<%= render "comments/form", post: post %>
-	<%= render "comments/table", post: post %>
-	<%= link_to 'Edytuj', edit_post_path(post) %>
-</div>
+<h2>Komentarze</h2>
+<%= render "comments/form", post: post %>
+<%= render "comments/table", post: post %>
+<%= link_to 'Edytuj', edit_post_path(post) %>

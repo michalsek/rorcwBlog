@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def all
-    @posts = Post.all
+    @posts = Post.includes(:comments)
   end
 
   def recent

@@ -80,5 +80,15 @@ describe "Posts" do
     expect(page).to have_content com3.message
     
   end
+
+  it "should filter adults only content" do
+    post = FactoryGirl.create :post, content: "To jest framgent wulgarnego tekstu, kurcze!"
+    
+    visit post_path(post)
+    expect(current_path).to eq post_path(post)
+    expect(page).to have_content post.title
+    expect(page).to_not have_content post.content
+    expect(page).to have_content "Tylko dla dorosłych!"
+  end
 end
 

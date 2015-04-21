@@ -25,6 +25,16 @@ describe 'Post' do
     expect(Post.recent.first).to eq post4
     
   end
+
+  it "should mark post as adults only" do
+    post1 = FactoryGirl.create :post, content: "To jest framgent wulgarnego tekstu, kurcze!"
+    post2 = FactoryGirl.create :post, content: "Kurcze, kto głosował na tego jełopa!"
+    post3 = FactoryGirl.create :post, content: "Całkiem przyzwoity teksty"
+    
+    expect(post1).to be_adults_only
+    expect(post2).to be_adults_only
+    expect(post3).to_not be_adults_only
+  end
 end
 
 require 'rails_helper'
