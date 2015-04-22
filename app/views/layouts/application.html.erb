@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Blog</title>
+  <title>Blog - <%= yield :title %></title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -18,8 +18,24 @@
   <![endif]-->
 </head>
 <body>
+  <header>
+    <div class="container vertical-align" >
+      <div class="col-xs-5"><h2>Blog - <%= yield :title %></h2></div>
+      <div class="col-xs-7">
+        <nav class="page-nav text-right">
+          <ul>
+            <li><%= link_to "Główna", root_path %></li>
+            <li><%= link_to "Najnowsze wpisy", recent_posts_path %></li>
+            <li><%= link_to "Wszystkie wpisy", all_posts_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 	<div class="container">
-		<p><%= notice %></p>
+    <div class="notice">
+      <div class="container <%= "visible" unless notice.nil? %>"><%= notice %></div>
+    </div>
 		<%= yield %>
 	</div>
 </body>

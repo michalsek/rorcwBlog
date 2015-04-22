@@ -1,6 +1,5 @@
-<h1>Editing post</h1>
-
+<% content_for :title, "Edytuj wpis" %>
+<nav class="posts-nav row text-right">
+	<%= link_to 'Powrót', @post, class: "btn btn-primary" %>
+</nav>
 <%= render 'form' %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>

@@ -1,21 +1,13 @@
-<tr>
-  <td><%= post.title %></td>
-  <td><%= post.content %></td>
-  <td><%= link_to 'Pokaż', post %></td>
-  <td><%= link_to 'Edytuj', edit_post_path(post) %></td>
-  <td><%= link_to 'Usuń', post, method: :delete, data: { confirm: 'Czy?' } %></td>
- </tr>
-
- <div class="post">
- 	<div class="header row">
+ <div class="post row">
+ 	<div class="header vertical-align">
  		<div class="col-xs-9"><h4><%= post.title %><h4></div>
- 		<div class="col-xs-3 text-right">Dodano: <%= post.created_at.strftime('%d-%m-%Y') %></div>
+ 		<div class="col-xs-3 text-right">Dodano: <%= post.created_at.strftime('%d-%m-%Y') %><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
  	</div>
  	<div class="content">
  		<%= post.content %>
  	</div>
  	<div class="links text-right">
- 		<%= link_to 'Pokaż', post, class: "btn btn-primary" %>
+ 		<%= link_to 'Pokaż', post, class: "btn btn-primary" unless single_post? %>
   	<%= link_to 'Edytuj', edit_post_path(post), class: "btn btn-info" %>
   	<%= link_to 'Usuń', post, method: :delete, data: { confirm: 'Czy?' }, class: "btn btn-danger" %>
  	</div>

@@ -1,8 +1,3 @@
-<h1>Super blog</h1>
-
+<% content_for :title, "Wpisy" %>
+<%= render "new_post" %>
 <%= render "table" %>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
-<%= link_to 'Najnowsze posty', recent_posts_path %>
