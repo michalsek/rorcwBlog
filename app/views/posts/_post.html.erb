@@ -10,9 +10,14 @@
  			<%= post.content %>
  		<% end %>
  	</div>
- 	<div class="links text-right">
- 		<%= link_to 'Pokaż', post, class: "btn btn-primary" unless single_post? %>
-  	<%= link_to 'Edytuj', edit_post_path(post), class: "btn btn-info" %>
-  	<%= link_to 'Usuń', post, method: :delete, data: { confirm: 'Czy?' }, class: "btn btn-danger" %>
+ 	<div>
+ 		<div class="col-xs-6 categories">
+ 			<%= render post.categories %>
+ 		</div>
+ 		<div class="col-xs-6 links text-right">
+ 			<%= link_to 'Pokaż', post, class: "btn btn-primary" unless single_post? %>
+  		<%= link_to 'Edytuj', edit_post_path(post), class: "btn btn-info" %>
+  		<%= link_to 'Usuń', post, method: :delete, data: { confirm: 'Czy?' }, class: "btn btn-danger" %>
+ 		</div>
  	</div>
  </div>

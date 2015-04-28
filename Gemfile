@@ -18,4 +18,5 @@ group :test,:development do
   gem 'factory_girl_rails'
   gem 'better_errors'
   gem 'database_cleaner'
+  gem 'pry'
 end

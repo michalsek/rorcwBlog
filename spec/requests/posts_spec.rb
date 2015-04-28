@@ -103,5 +103,31 @@ describe "Posts" do
       click_on "Usuń"
     }.to change{ Comment.count }.from(3).to(0)
   end
+  
+  it "should add post with categories" do
+    category1 = FactoryGirl.create :category
+    category2 = FactoryGirl.create :category
+    category3 = FactoryGirl.create :category
+    
+    visit new_post_path
+    fill_in :post_title, with: "Chwytliwy tytuł"
+    fill_in :post_content, with: "Nowa super Treść"
+    
+    select category2.name, from: :post_category_ids
+    select category3.name, from: :post_category_ids
+    
+    click_on "Zapisz"
+    post = Post.last
+    expect(current_path).to eq post_path(post)
+    expect(page).to have_content "Chwytliwy tytuł"
+    expect(page).to_not have_content category1.name
+    expect(page).to have_content category2.name
+    expect(page).to have_content category3.name
+    
+    expect(post.categories.length).to eq 2
+    expect(post.categories).to_not include(category1)
+    expect(post.categories).to include(category2)
+    expect(post.categories).to include(category3) 
+  end
 end
 

@@ -1,0 +1,6 @@
+<% content_for :title, "Kategorie" %>
+<div class="posts row">
+  <% @categories.each do |category| %>
+    <%= render "categories/category2", category: category %>
+  <% end %>
+</div>

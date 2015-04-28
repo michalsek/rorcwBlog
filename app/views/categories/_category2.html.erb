@@ -1,0 +1,13 @@
+ <div class="post row">
+ 	<div class="header vertical-align">
+ 		<div class="col-xs-9"><h4><%= category.name %><h4></div>
+ 		<div class="col-xs-3 text-right">Dodano: <%= category.created_at.strftime('%d-%m-%Y') %><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
+ 	</div>
+ 	<div>
+ 		<div class="links text-right">
+ 			<%= link_to 'Pokaż', category, class: "btn btn-primary" %>
+  		<%= link_to 'Edytuj', edit_category_path(category), class: "btn btn-info" %>
+  		<%= link_to 'Usuń', category, method: :delete, data: { confirm: 'Czy?' }, class: "btn btn-danger" %>
+ 		</div>
+ 	</div>
+ </div>
