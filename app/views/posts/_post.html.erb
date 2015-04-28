@@ -4,7 +4,11 @@
  		<div class="col-xs-3 text-right">Dodano: <%= post.created_at.strftime('%d-%m-%Y') %><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
  	</div>
  	<div class="content">
- 		<%= post.content %>
+ 		<% if post.content.match /kurcze/i %>
+ 			"Tylko dla dorosłych!"
+ 		<% else %>
+ 			<%= post.content %>
+ 		<% end %>
  	</div>
  	<div class="links text-right">
  		<%= link_to 'Pokaż', post, class: "btn btn-primary" unless single_post? %>

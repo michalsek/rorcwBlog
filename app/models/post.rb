@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	has_many :comments
+	has_many :comments, :dependent => :delete_all
 	before_save :check_is_adults_only
 	
 	def self.recent
