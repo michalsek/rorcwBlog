@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def all
-    @posts = Post.includes(:comments)
+    @posts = Post.includes(:comments).page(params[:page]).per(2)
   end
 
   def recent

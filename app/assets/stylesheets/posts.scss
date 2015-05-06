@@ -1,6 +1,11 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$categories: (
+  artykuły: #7A4BB2, 
+  wpisyużytkowników: #00b579, 
+  whatever: #f82021
+);
 
 .posts-nav{
 	margin-bottom: 10px;
@@ -11,12 +16,20 @@
 	padding-bottom: 20px;
 	border-bottom: 2px solid #ddd;
 
+	@each $name, $value in $categories {
+		&.#{$name}{
+			.header{ 
+				color: $value; 
+				border-bottom: 1px solid $value; 
+			}
+		}
+	}
+
 	&:last-child{
 		border-bottom: 0;
 	}
 
 	.header{
-		border-bottom: 1px solid #ddd;
 		padding-bottom: 10px;
 		margin-bottom: 10px;
 		& > * {

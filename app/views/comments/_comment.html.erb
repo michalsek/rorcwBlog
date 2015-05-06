@@ -1,4 +1,4 @@
 <div class="comment">
-	<div class="name"><h5><%= comment.name %></h5> | <%= comment.created_at.strftime('%d-%m-%Y %H:%M') %></div>
+	<div class="name"><h5><%= comment.name %></h5><span class="separator"> | </span><span class="date"><%= comment.created_at.strftime('%d-%m-%Y %H:%M') %></span></div>
  	<div class="message"><%= comment.message %></div>
 </div>

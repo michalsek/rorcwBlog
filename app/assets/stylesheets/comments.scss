@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .comments{
 	margin-top: 20px;
-	padding-left: 100px;
 }
 .comment {
 	.name {
@@ -12,6 +11,15 @@
 		border-bottom: 1px solid #ddd;
 
 		h5{ display: inline; font-weight: 500; color: #337ab7; }
+
+		.date{
+			font-size: 0.7em;
+			color: #148F14;
+		}
 	}
 	margin-bottom: 20px;
+}
+
+.all_posts .comment {
+	.date, .separator{ display: none; }
 }

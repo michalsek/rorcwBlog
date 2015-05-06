@@ -13,28 +13,28 @@ describe 'Post' do
   #   expect(post2.content).to eq "Treść 2"
   # end
 
-   it "should display good recent posts" do
-    post3 = FactoryGirl.create :post
-    post4 = FactoryGirl.create :post
+  #  it "should display good recent posts" do
+  #   post3 = FactoryGirl.create :post
+  #   post4 = FactoryGirl.create :post
     
-    expect(Post.recent.length).to eq 3
-    expect(Post.recent).to_not include(post)
-    expect(Post.recent).to include(post4)
-    expect(Post.recent).to include(post3)
-    expect(Post.recent).to include(post2)
-    expect(Post.recent.first).to eq post4
+  #   expect(Post.recent.length).to eq 3
+  #   expect(Post.recent).to_not include(post)
+  #   expect(Post.recent).to include(post4)
+  #   expect(Post.recent).to include(post3)
+  #   expect(Post.recent).to include(post2)
+  #   expect(Post.recent.first).to eq post4
     
-  end
+  # end
 
-  it "should mark post as adults only" do
-    post1 = FactoryGirl.create :post, content: "To jest framgent wulgarnego tekstu, kurcze!"
-    post2 = FactoryGirl.create :post, content: "Kurcze, kto głosował na tego jełopa!"
-    post3 = FactoryGirl.create :post, content: "Całkiem przyzwoity teksty"
+  # it "should mark post as adults only" do
+  #   post1 = FactoryGirl.create :post, content: "To jest framgent wulgarnego tekstu, kurcze!"
+  #   post2 = FactoryGirl.create :post, content: "Kurcze, kto głosował na tego jełopa!"
+  #   post3 = FactoryGirl.create :post, content: "Całkiem przyzwoity teksty"
     
-    expect(post1).to be_adults_only
-    expect(post2).to be_adults_only
-    expect(post3).to_not be_adults_only
-  end
+  #   expect(post1).to be_adults_only
+  #   expect(post2).to be_adults_only
+  #   expect(post3).to_not be_adults_only
+  # end
 end
 
 require 'rails_helper'

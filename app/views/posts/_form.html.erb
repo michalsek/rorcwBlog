@@ -1,26 +1,6 @@
-<div class="row post-form">
- <%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.text_field :title, placeholder: 'Tytuł', class: 'form-control' %>
-  </div>
-  <div class="field">
-    <%= f.collection_select :category_ids, Category.all, :id, :name, {}, {multiple: true} %>
-  </div>
-  <div class="field">
-    <%= f.text_area :content, placeholder: 'Treść', rows: '10', class: 'form-control' %>
-  </div>
-  <div class="actions text-right">
-    <%= f.submit "Dodaj", class: "btn btn-success" %>
-  </div>
- <% end %>
-</div>
+<%= simple_form_for @post do |f| %>
+  <%= f.input :title %>
+  <%= f.association :categories %>
+  <%= f.input :content %>
+  <%= f.button :submit, "Zapisz" %>
+<% end %>

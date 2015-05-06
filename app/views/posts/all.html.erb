@@ -1,5 +1,8 @@
 <% content_for :title, "Wszystkie Wpisy" %>
 <%= render "new_post" %>
-<% @posts.each do |post| %>
-	<%= render 'show', post: post %>
-<% end %>
+<div class="all_posts">
+	<% @posts.each do |post| %>
+		<%= render 'show', post: post %>
+	<% end %>
+	<%= paginate @posts %>
+</div>

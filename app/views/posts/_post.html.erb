@@ -1,4 +1,4 @@
- <div class="post row">
+ <div class="post row <%= post.categories.first.name.downcase.delete(' ') %>">
  	<div class="header vertical-align">
  		<div class="col-xs-9"><h4><%= post.title %><h4></div>
  		<div class="col-xs-3 text-right">Dodano: <%= post.created_at.strftime('%d-%m-%Y') %><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
