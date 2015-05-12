@@ -17,5 +17,5 @@
 *.swp
 .DS_Store
 tags
-
+/.c9
 .DS_Store

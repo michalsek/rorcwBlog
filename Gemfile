@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'simple_form' 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'kaminari'
+gem 'bcrypt', '~> 3.1.10'
 
 group :test,:development do
   gem 'rspec-rails'
