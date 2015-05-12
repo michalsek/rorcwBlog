@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512084804) do
+ActiveRecord::Schema.define(version: 20150512102651) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 20150512084804) do
   add_index "categories_posts", ["category_id", "post_id"], name: "index_categories_posts_on_category_id_and_post_id"
 
   create_table "comments", force: true do |t|
-    t.string   "name"
     t.string   "message"
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150512084804) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
 end

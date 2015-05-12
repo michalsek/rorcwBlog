@@ -1,6 +1,6 @@
 <%= simple_form_for Comment.new do |f| %>
-  <%= f.input :name %>
   <%= f.input :message, as: :text %>
   <%= f.hidden_field :post_id, value: post.id %>
+  <%= f.hidden_field :user_id, value: @current_user.id %>
   <%= f.button :submit, "Komentuj" %>
 <% end %>
