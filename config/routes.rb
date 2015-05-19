@@ -18,9 +18,6 @@ Rails.application.routes.draw do
       get :recent
       get :all
     end
-    member do
-
-    end
   end
   root to: "posts#index"
 end

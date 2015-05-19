@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @post, notice: 'Komentarz został dodany.' }
+        format.js
       else
         format.html { redirect_to @post, notice: 'Komentarz nie został dodany.' }
       end
