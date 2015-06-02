@@ -2,5 +2,13 @@
   <%= f.input :title %>
   <%= f.association :categories %>
   <%= f.input :content %>
-  <%= f.button :submit, "Zapisz" %>
+  
+  <%= f.simple_fields_for :comments do |builder| %>
+    <%= render 'comment_fields', f: builder %>
+  <% end %>
+  
+  <div class="form-actions">
+    <%= link_to_add_fields "Add comment", f, :comments %>
+    <%= f.button :submit, "Zapisz" %>
+  </div>
 <% end %>

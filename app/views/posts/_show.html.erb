@@ -1,6 +1,6 @@
 <%= render "posts/post", post: post %>
 <div class="post-comments row">
 	<div class="header"><h4>Komentarze</h4></div>
-	<%= render "comments/form", post: post %>
-	<%= render "comments/table", post: post %>
+	<%= render "comments/form", commentable: post %>
+	<%= render "comments/table", commentable: post %>
 </div>

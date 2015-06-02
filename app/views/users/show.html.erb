@@ -1,2 +1,8 @@
 <%= @user.email %>
 <%= @user.name %>
+
+<div class="post-comments row">
+	<div class="header"><h4>Komentarze</h4></div>
+	<%= render "comments/form", commentable: @user %>
+	<%= render "comments/table", commentable: @user %>
+</div>

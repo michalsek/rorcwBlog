@@ -1,0 +1,15 @@
+<%= simple_form_for(@question) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :content %>
+  </div>
+  
+  <%= f.simple_fields_for :responses do |builder| %>
+    <%= render 'response_fields', f: builder %>
+  <% end %>
+  <div class="form-actions">
+    <%= link_to_add_fields "Add response", f, :responses %>
+    <%= f.button :submit %>
+  </div>
+<% end %>

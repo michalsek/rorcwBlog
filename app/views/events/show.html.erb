@@ -1,0 +1,26 @@
+ <div class="post row">
+ 	<div class="header vertical-align">
+ 		<div class="col-xs-9"><h4><%= @event.title %><h4></div>
+ 		<div class="col-xs-3 text-right">
+ 		  Początek: <%= @event.date_from.strftime('%d-%m-%Y %H:%M') %><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><br />
+ 		  Koniec: <%= @event.date_to.strftime('%d-%m-%Y %H:%M') %><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+ 		</div>
+ 	</div>
+ 	<div class="content">
+ 			<%= @event.content %>
+ 	</div>
+ 	<div>
+ 		<div class="col-xs-6">
+ 		</div>
+ 		<div class="col-xs-6 links text-right">
+  		<%= link_to 'Edytuj', edit_event_path(@event), class: "btn btn-info" %>
+  		<%= link_to 'Usuń', @event, method: :delete, data: { confirm: 'Czy?' }, class: "btn btn-danger" %>
+ 		</div>
+ 	</div>
+ </div>
+
+<div class="post-comments row">
+	<div class="header"><h4>Komentarze</h4></div>
+	<%= render "comments/form", commentable: @event %>
+	<%= render "comments/table", commentable: @event %>
+</div>

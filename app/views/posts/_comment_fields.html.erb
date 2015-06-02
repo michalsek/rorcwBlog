@@ -1,0 +1,13 @@
+<fieldset class="row">
+  <div class="col-sm-2">
+      <%= f.label :message %>
+  </div>
+  <div class="col-sm-8">
+      <%= f.input_field :message, class: "string optional form-control" %>
+      <%= f.association :user %>
+  </div>
+  <div class="col-sm-2">
+      <%= f.input :_destroy, as: :hidden %>
+      <%= link_to "remove", '#', class: "remove_fields btn btn-danger" %>
+  </div>
+</fieldset>

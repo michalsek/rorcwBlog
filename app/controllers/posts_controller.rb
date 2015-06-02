@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @events = Event.active
   end
 
   def all
@@ -77,6 +78,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :post_id, category_ids: [])
+      params.require(:post).permit(:title, :content, :post_id, comments_attributes: [:id, :_destroy, :post_id, :user_id, :message], category_ids: [])
     end
 end

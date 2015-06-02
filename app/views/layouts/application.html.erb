@@ -28,6 +28,7 @@
             <li><%= link_to "Główna", root_path %></li>
             <li><%= link_to "Kategorie", categories_path %></li>
             <li><%= link_to "Najnowsze wpisy", recent_posts_path %></li>
+            <li><%= link_to "Wydarzenia", events_path %></li>
             <% if @current_user %>
               <li><%= link_to "Wyloguj", logout_path %></li>
             <% else %>
